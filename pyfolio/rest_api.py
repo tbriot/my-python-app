@@ -17,7 +17,7 @@ holdings = [
 	},
 	{
 		'id':3,
-		'symbol':'SLF',
+		'symbol':'TD',
 		'quantity':4
 	}
 ]
