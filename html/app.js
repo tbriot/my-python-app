@@ -1,12 +1,12 @@
 var TradeItem = Vue.extend({
     props: ['trade'],
     template: `
-        <li>
-            <div>Trade ID = {{ trade.id }}</div>
-            <div>traded on {{ trade.tradedOn }}</div>
-            <div>type = {{ trade.type }}</div>
-            <div>security = {{ trade.security }}</div>
-        </li>
+        <tr>
+            <th scope="row">{{ trade.id }}</th>
+            <td>{{ trade.tradedOn }}</td>
+            <td>{{ trade.type }}</td>
+            <td>@{{ trade.security }}</td>
+        </tr>
     `            
 })
 
@@ -32,12 +32,22 @@ var tradesSample =    [
 ]
 
 var TradeList = Vue.extend({
-    template: `
-        <div>
-            <h1>List of trades</h1>
-            <ol type="1">
-                <trade-item v-for="trade in trades" :trade="trade" :key="trade.id"></trade-item>
-            </ol>
+    template: `        
+        <div class="row mt-3">
+            <table class="table table-dark table-striped table-bordered table-hover vcenter">
+            <caption class="text-dark text-top h2">List of trades</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Traded On</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Security</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <trade-item v-for="trade in trades" :trade="trade" :key="trade.id"></trade-item>
+                </tbody>
+            </table>
         </div>
     `,
     data: function () {
